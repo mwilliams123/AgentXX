@@ -27,10 +27,10 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var mute_btn: UIButton!
     
     
-    @IBAction func newGame(sender: AnyObject) {
-        myDefaults.setInteger(0, forKey: myLevel)
-        myDefaults.setInteger(0, forKey: myChoices)
-        myDefaults.setInteger(0, forKey: loadScreen)
+    @IBAction func newGame(_ sender: AnyObject) {
+        myDefaults.set(0, forKey: myLevel)
+        myDefaults.set(0, forKey: myChoices)
+        myDefaults.set(0, forKey: loadScreen)
     }
     
     override func viewDidLoad() {
@@ -39,13 +39,13 @@ class InitialViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // play music
-        let path = NSBundle.mainBundle().pathForResource("PhantomfromSpace.mp3", ofType: nil)!
-        let url = NSURL(fileURLWithPath: path)
+        let path = Bundle.main.path(forResource: "PhantomfromSpace.mp3", ofType: nil)!
+        let url = URL(fileURLWithPath: path)
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let sound = try AVAudioPlayer(contentsOf: url)
             music = sound
             music.numberOfLoops = -1
             sound.play()
@@ -53,26 +53,26 @@ class InitialViewController: UIViewController {
             // do nothing
         }
         
-        UIView.animateWithDuration(0.7, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             self.label.center.x -= self.view.bounds.width
         })
-        UIView.animateWithDuration(0.7, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: {
             self.new_btn.center.x += self.view.bounds.width
             }, completion: nil)
-        UIView.animateWithDuration(0.7, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: {
             self.resume_btn.center.x -= self.view.bounds.width
             }, completion: nil)
-        UIView.animateWithDuration(0.7, delay: 0.5, options: [], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: {
             self.credit_btn.center.x += self.view.bounds.width
             }, completion: nil)
         
-        if myDefaults.integerForKey(loadScreen) == 0 && myDefaults.integerForKey(myLevel) == 0 && myDefaults.integerForKey(myChoices) == 0 {
+        if myDefaults.integer(forKey: loadScreen) == 0 && myDefaults.integer(forKey: myLevel) == 0 && myDefaults.integer(forKey: myChoices) == 0 {
             // starting game for first time, so gray out resume button
-            resume_btn.enabled = false
+            resume_btn.isEnabled = false
             resume_btn.alpha = 0.5
         }
         else {
-            resume_btn.enabled = true
+            resume_btn.isEnabled = true
             resume_btn.alpha = 1
         }
         
@@ -80,52 +80,52 @@ class InitialViewController: UIViewController {
     }
     
     // resume
-    @IBAction func resumedApp(sender: AnyObject) {
+    @IBAction func resumedApp(_ sender: AnyObject) {
         if music != nil {
             music.stop()
             music = nil
         }
-        if myDefaults.integerForKey(loadScreen) == 1 {
+        if myDefaults.integer(forKey: loadScreen) == 1 {
             // load maze
-            let maze:MazeViewController = storyboard?.instantiateViewControllerWithIdentifier("maze") as! MazeViewController
-            maze.level = myDefaults.integerForKey(myLevel) / 4
-            self.presentViewController(maze, animated: false, completion: nil)
+            let maze:MazeViewController = storyboard?.instantiateViewController(withIdentifier: "maze") as! MazeViewController
+            maze.level = myDefaults.integer(forKey: myLevel) / 4
+            self.present(maze, animated: false, completion: nil)
         }
-        else if myDefaults.integerForKey(loadScreen) == 0 {
+        else if myDefaults.integer(forKey: loadScreen) == 0 {
             // load dialogue
-            let S: SecondViewController = storyboard?.instantiateViewControllerWithIdentifier("first") as! SecondViewController
-            S.level = (myDefaults.integerForKey(myLevel) / 4) + 1
+            let S: SecondViewController = storyboard?.instantiateViewController(withIdentifier: "first") as! SecondViewController
+            S.level = (myDefaults.integer(forKey: myLevel) / 4) + 1
 
-            self.presentViewController(S, animated: false, completion: nil)
+            self.present(S, animated: false, completion: nil)
         }
-        else if myDefaults.integerForKey(loadScreen) == 2 {
+        else if myDefaults.integer(forKey: loadScreen) == 2 {
             // load questions
-            let Q: ViewController = storyboard?.instantiateViewControllerWithIdentifier("main") as! ViewController
-            self.presentViewController(Q, animated: false, completion: nil)
+            let Q: ViewController = storyboard?.instantiateViewController(withIdentifier: "main") as! ViewController
+            self.present(Q, animated: false, completion: nil)
         }
-        else if myDefaults.integerForKey(loadScreen) == 3 {
+        else if myDefaults.integer(forKey: loadScreen) == 3 {
             // load final challenge
-            let F: finalViewController = storyboard?.instantiateViewControllerWithIdentifier("final") as! finalViewController
-            self.presentViewController(F, animated: false, completion: nil)
+            let F: finalViewController = storyboard?.instantiateViewController(withIdentifier: "final") as! finalViewController
+            self.present(F, animated: false, completion: nil)
         }
         
     }
     
     var mute: Bool = false
     
-    @IBAction func hitMuteButton(sender: AnyObject) {
+    @IBAction func hitMuteButton(_ sender: AnyObject) {
         if mute {
             if music != nil {
                 music.play()
             }
-            self.mute_btn.setImage(UIImage(named: "mute"), forState: .Normal)
+            self.mute_btn.setImage(UIImage(named: "mute"), for: UIControlState())
             mute = false
         }
         else {
             if music != nil {
                 music.pause()
             }
-            self.mute_btn.setImage(UIImage(named: "unmute"), forState: .Normal)
+            self.mute_btn.setImage(UIImage(named: "unmute"), for: UIControlState())
             mute = true
         }
     }
@@ -136,13 +136,13 @@ class InitialViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if music != nil {
             music.stop()
             music = nil
         }
         if segue.identifier == "new" {
-            let init_screen:SecondViewController = segue.destinationViewController as! SecondViewController
+            let init_screen:SecondViewController = segue.destination as! SecondViewController
             init_screen.level = 0
             init_screen.start = true
         }
@@ -151,7 +151,7 @@ class InitialViewController: UIViewController {
     
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         label.center.x += view.bounds.width
         new_btn.center.x -= view.bounds.width

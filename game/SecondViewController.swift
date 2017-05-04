@@ -179,13 +179,13 @@ class SecondViewController: UIViewController {
     
     var len:Int = 0
     var counter:Int = 0
-    var timer = NSTimer()
+    var timer = Timer()
     var string: NSAttributedString = NSAttributedString()
     
     
     func print_text() {
-        let new_string: NSMutableAttributedString = NSMutableAttributedString(attributedString: string.attributedSubstringFromRange(NSMakeRange(0, counter)))
-        new_string.appendAttributedString(NSAttributedString(string: "\n"))
+        let new_string: NSMutableAttributedString = NSMutableAttributedString(attributedString: string.attributedSubstring(from: NSMakeRange(0, counter)))
+        new_string.append(NSAttributedString(string: "\n"))
         screen.attributedText = new_string
         if screen.contentSize.height > screen.bounds.height {
             screen.setContentOffset(CGPoint(x: 0, y: screen.contentOffset.y + 2), animated: false)
@@ -199,47 +199,47 @@ class SecondViewController: UIViewController {
     }
     
     
-    func print_dialogue(text: NSAttributedString) {
+    func print_dialogue(_ text: NSAttributedString) {
         len = text.string.characters.count
         string = text
         counter = 1
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: #selector(SecondViewController.print_text), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(SecondViewController.print_text), userInfo: nil, repeats: true)
         
     }
     
     var level:Int = 0
     
     func loadMazes() {
-        myDefaults.setInteger(1, forKey: loadScreen)
+        myDefaults.set(1, forKey: loadScreen)
         if level == 0 || level == 4 || level == 8 || level == 12 || level == 16 {
             // load
-            let infosheet: InfoViewController = storyboard?.instantiateViewControllerWithIdentifier("info") as! InfoViewController
+            let infosheet: InfoViewController = storyboard?.instantiateViewController(withIdentifier: "info") as! InfoViewController
             infosheet.level = level/4
             infosheet.maze = true
-            self.presentViewController(infosheet, animated: false, completion: nil)
+            self.present(infosheet, animated: false, completion: nil)
         }
         else {
-            let maze:MazeViewController = storyboard?.instantiateViewControllerWithIdentifier("maze") as! MazeViewController
+            let maze:MazeViewController = storyboard?.instantiateViewController(withIdentifier: "maze") as! MazeViewController
             maze.level = level
-            self.presentViewController(maze, animated: false, completion: nil)
+            self.present(maze, animated: false, completion: nil)
         }
         
     }
     
-    var color:UIColor = .clearColor()
+    var color:UIColor = .clear
     
-    let alert:UIAlertController = UIAlertController(title: "You collected the piece!", message: "Let's head back to the rocket", preferredStyle: UIAlertControllerStyle.Alert)
+    let alert:UIAlertController = UIAlertController(title: "You collected the piece!", message: "Let's head back to the rocket", preferredStyle: UIAlertControllerStyle.alert)
     
-    func print_dialogue(loc: String, dialogue: String, red: Bool) {
+    func print_dialogue(_ loc: String, dialogue: String, red: Bool) {
         let font:UIFont? = UIFont(name: "Menlo", size:20)
         let string = loc + dialogue
         let attString:NSMutableAttributedString = NSMutableAttributedString(string: string)
         if red {
-            attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, attString.length))
+            attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(0, attString.length))
         }
         else {
-            attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSMakeRange(0, attString.length))
-             attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: NSMakeRange(0, attString.length))
+            attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSMakeRange(0, attString.length))
+             attString.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSMakeRange(0, attString.length))
         }
        
         attString.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, attString.length))
@@ -250,7 +250,7 @@ class SecondViewController: UIViewController {
     
     var maze: Bool = false
     
-    func complete(done: Bool) {
+    func complete(_ done: Bool) {
         if done {
             let loc = "Location: Unknown\nYear: 2050\n\n"
             print_dialogue(loc, dialogue: self.dialogue[0], red: false)
@@ -267,9 +267,9 @@ class SecondViewController: UIViewController {
         
         // make black fade transparent
         fade_view.alpha = 0
-        intro_view.hidden = true
+        intro_view.isHidden = true
         
-        alert.addAction(UIAlertAction(title: "Continue", style: .Default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
             self.loadMazes()
         }))
         
@@ -346,38 +346,38 @@ class SecondViewController: UIViewController {
     }
     
     func loadNewView() {
-        myDefaults.setInteger(2, forKey: loadScreen)
-        let info_sheet:InfoViewController = storyboard?.instantiateViewControllerWithIdentifier("info") as! InfoViewController
+        myDefaults.set(2, forKey: loadScreen)
+        let info_sheet:InfoViewController = storyboard?.instantiateViewController(withIdentifier: "info") as! InfoViewController
         info_sheet.level = level
-        self.presentViewController(info_sheet, animated: false, completion: nil)
+        self.present(info_sheet, animated: false, completion: nil)
     }
     
     func presentBio() {
-        let popUp: BioViewController = storyboard?.instantiateViewControllerWithIdentifier("bio") as! BioViewController
+        let popUp: BioViewController = storyboard?.instantiateViewController(withIdentifier: "bio") as! BioViewController
         //var nav = UINavigationController(rootViewController: popUp)
-        popUp.modalPresentationStyle = .Popover
+        popUp.modalPresentationStyle = .popover
         popUp.level = level
         let popoverController = popUp.popoverPresentationController
         popoverController?.sourceView = self.view
-        presentViewController(popUp, animated: true, completion: nil)
+        present(popUp, animated: true, completion: nil)
     }
     
     func loadCasefile() {
-        let popUp: InfoViewController = storyboard?.instantiateViewControllerWithIdentifier("info") as! InfoViewController
+        let popUp: InfoViewController = storyboard?.instantiateViewController(withIdentifier: "info") as! InfoViewController
         //var nav = UINavigationController(rootViewController: popUp)
-        popUp.modalPresentationStyle = .Popover
+        popUp.modalPresentationStyle = .popover
         popUp.casefile = true
         let popoverController = popUp.popoverPresentationController
         popoverController?.sourceView = self.view
-        presentViewController(popUp, animated: true, completion: nil)
+        present(popUp, animated: true, completion: nil)
     }
     var maze_info: Bool = false
-    @IBAction func nextbtn(sender: UIButton) {
+    @IBAction func nextbtn(_ sender: UIButton) {
         //click next button
         screen.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         screen.attributedText = NSAttributedString(string: "")
         
-        if timer.valid {
+        if timer.isValid {
             timer.invalidate()
             screen.attributedText = string
         }
@@ -396,7 +396,7 @@ class SecondViewController: UIViewController {
                     
                 }
                 else {
-                    presentViewController(alert, animated: true, completion: nil)
+                    present(alert, animated: true, completion: nil)
                 }
                 
             }
@@ -425,7 +425,7 @@ class SecondViewController: UIViewController {
                         }
                         else if cutNum == 14  {
                             self.fade_view.alpha = 1
-                            UIView.animateWithDuration(2.5, animations: {
+                            UIView.animate(withDuration: 2.5, animations: {
                                 self.fade_view.alpha = 0
                             })
                         }
@@ -434,10 +434,10 @@ class SecondViewController: UIViewController {
                             presentBio()
                         }
                         else if cutNum == 18  {
-                            UIView.animateWithDuration(0.5, animations: {
+                            UIView.animate(withDuration: 0.5, animations: {
                                 self.fade_view.alpha = 1
                             })
-                            UIView.animateWithDuration(0.5, delay: 0.5, options: [], animations: {
+                            UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
                                 self.fade_view.alpha = 0
                                 }, completion: nil)
                         }
@@ -446,7 +446,7 @@ class SecondViewController: UIViewController {
                         }
                         else {
                             screen.text = dialogue[cutNum]
-                            screen.textColor = UIColor.whiteColor()
+                            screen.textColor = UIColor.white
                         }
                         
                         
@@ -493,10 +493,10 @@ class SecondViewController: UIViewController {
                     }
                     else if cutNum == 3 {
                         // fade to black
-                        UIView.animateWithDuration(0.5, animations: {
+                        UIView.animate(withDuration: 0.5, animations: {
                             self.fade_view.alpha = 1
                         })
-                        UIView.animateWithDuration(0.5, delay: 0.5, options: [], animations: {
+                        UIView.animate(withDuration: 0.5, delay: 0.5, options: [], animations: {
                             self.fade_view.alpha = 0
                             }, completion: nil)
                         
@@ -510,7 +510,7 @@ class SecondViewController: UIViewController {
                     }
                     else if cutNum == 2 {
                         screen.text = dialogue1[cutNum]
-                        screen.textColor = UIColor.whiteColor()
+                        screen.textColor = UIColor.white
                     }
                     else {
                         print_dialogue("", dialogue: dialogue1[cutNum], red: false)
@@ -524,9 +524,9 @@ class SecondViewController: UIViewController {
                     }
                     else {
                         // load final challenge
-                        myDefaults.setInteger(3, forKey: loadScreen)
-                        let final_challenge: finalViewController = storyboard?.instantiateViewControllerWithIdentifier("final") as! finalViewController
-                        self.presentViewController(final_challenge, animated: false, completion: nil)
+                        myDefaults.set(3, forKey: loadScreen)
+                        let final_challenge: finalViewController = storyboard?.instantiateViewController(withIdentifier: "final") as! finalViewController
+                        self.present(final_challenge, animated: false, completion: nil)
                     }
                 case 21:
                     if cutNum == 1 {
@@ -537,12 +537,12 @@ class SecondViewController: UIViewController {
                         print_dialogue("", dialogue: "I’d like to recommend you for the Science, Technology,   Engineering, and Math sector of the Agency, with your permission. I think you’d excel there. That’s all for today. I’ll see you bright and early tomorrow, Agent XX.", red: false)
                     }
                     else {
-                        let end: CreditsViewController = storyboard?.instantiateViewControllerWithIdentifier("credits") as! CreditsViewController
+                        let end: CreditsViewController = storyboard?.instantiateViewController(withIdentifier: "credits") as! CreditsViewController
                         //end.game_finished = true
-                        myDefaults.setInteger(0, forKey: myLevel)
-                        myDefaults.setInteger(0, forKey: myChoices)
-                        myDefaults.setInteger(0, forKey: loadScreen)
-                        self.presentViewController(end, animated: true, completion: nil)
+                        myDefaults.set(0, forKey: myLevel)
+                        myDefaults.set(0, forKey: myChoices)
+                        myDefaults.set(0, forKey: loadScreen)
+                        self.present(end, animated: true, completion: nil)
                     }
                 default:
                     if cutNum == 1 {
@@ -556,14 +556,14 @@ class SecondViewController: UIViewController {
                         presentBio()
                         let s = "It looks like she has a piece of the cure! Let's ask her for it."
                         screen.text = s
-                        screen.textColor = UIColor.whiteColor()
+                        screen.textColor = UIColor.white
                         //print_dialogue("", dialogue: s, red: false)
                     }
                     else if cutNum == 3 {
-                        UIView.animateWithDuration(1, animations: {
+                        UIView.animate(withDuration: 1, animations: {
                             self.fade_view.alpha = 1
                         })
-                        UIView.animateWithDuration(1, delay: 1, options: [], animations: {
+                        UIView.animate(withDuration: 1, delay: 1, options: [], animations: {
                             self.fade_view.alpha = 0
                             }, completion: nil)
                         var s = ""
@@ -611,7 +611,7 @@ class SecondViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //UIView.animateWithDuration(1.5, animations: {
          //   self.fade_view.alpha = 0
@@ -619,8 +619,8 @@ class SecondViewController: UIViewController {
         if start {
             start = false
             print("works")
-            intro_view.hidden = false
-            UIView.animateWithDuration(5, animations: {
+            intro_view.isHidden = false
+            UIView.animate(withDuration: 5, animations: {
                 self.intro_view.alpha = 0
                 }, completion: {(Bool)  in
                     self.print_dialogue("Location: Unknown\nYear: 2050\n\n", dialogue: self.dialogue[0], red: false)})

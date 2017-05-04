@@ -39,18 +39,18 @@ class BagViewController: UIViewController {
     }
     @IBOutlet weak var bag_image: UIButton!
 
-    @IBAction func changeRobot(sender: AnyObject) {
+    @IBAction func changeRobot(_ sender: AnyObject) {
     }
     
-    @IBAction func closeBag(sender: AnyObject) {
-        bag_image.setImage(UIImage(named: "new_bag"), forState: .Normal)
+    @IBAction func closeBag(_ sender: AnyObject) {
+        bag_image.setImage(UIImage(named: "new_bag"), for: UIControlState())
     }
-    @IBAction func clickedBag(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func clickedBag(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func clickedBack(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func clickedBack(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

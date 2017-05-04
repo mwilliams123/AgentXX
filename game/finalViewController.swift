@@ -12,12 +12,12 @@ import AVFoundation
 
 class AlertView2: NSObject {
     
-    class func showAlert(view: UIViewController){
+    class func showAlert(_ view: UIViewController){
         
-        let alert = UIAlertController(title: "Oh no!", message: "The cure did not come out right. Let's try again", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default, handler: nil))
-        dispatch_async(dispatch_get_main_queue(), {
-            view.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Oh no!", message: "The cure did not come out right. Let's try again", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+        DispatchQueue.main.async(execute: {
+            view.present(alert, animated: true, completion: nil)
         })
     }
 }
@@ -45,7 +45,7 @@ class finalViewController: UIViewController {
     var music3:AVAudioPlayer!
     
     //alerts for correct and incorrect answers
-    let alert:UIAlertController = UIAlertController(title: "Mission accomplished!", message: "You've successfully made the cure!", preferredStyle: UIAlertControllerStyle.Alert)
+    let alert:UIAlertController = UIAlertController(title: "Mission accomplished!", message: "You've successfully made the cure!", preferredStyle: UIAlertControllerStyle.alert)
   
     
     
@@ -55,10 +55,10 @@ class finalViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // music 
-        let path = NSBundle.mainBundle().pathForResource("TheBuilder.mp3", ofType: nil)
-        let url = NSURL(fileURLWithPath: path!)
+        let path = Bundle.main.path(forResource: "TheBuilder.mp3", ofType: nil)
+        let url = URL(fileURLWithPath: path!)
         do {
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let sound = try AVAudioPlayer(contentsOf: url)
             music3 = sound
             music3.numberOfLoops = -1
             sound.play()
@@ -70,10 +70,10 @@ class finalViewController: UIViewController {
         instructions.text = "\u{2022} The total volume is 200 units.\n\n\u{2022} The amount of blue solution needed is twice that of the red.\n\n\u{2022} The amount of green solution is one sixth that of the yellow.\n\n\u{2022} Green and red volumes must be equal."
         
         // make sliders increment by 20
-        red.addTarget(self, action: #selector(finalViewController.valueChangedRed), forControlEvents: UIControlEvents.ValueChanged)
-        yellow.addTarget(self, action: #selector(finalViewController.valueChangedYellow), forControlEvents: UIControlEvents.ValueChanged)
-        green.addTarget(self, action: #selector(finalViewController.valueChangedGreen), forControlEvents: UIControlEvents.ValueChanged)
-        blue.addTarget(self, action: #selector(finalViewController.valueChangedBlue), forControlEvents: UIControlEvents.ValueChanged)
+        red.addTarget(self, action: #selector(finalViewController.valueChangedRed), for: UIControlEvents.valueChanged)
+        yellow.addTarget(self, action: #selector(finalViewController.valueChangedYellow), for: UIControlEvents.valueChanged)
+        green.addTarget(self, action: #selector(finalViewController.valueChangedGreen), for: UIControlEvents.valueChanged)
+        blue.addTarget(self, action: #selector(finalViewController.valueChangedBlue), for: UIControlEvents.valueChanged)
         
         // initial values of sliders
         red_display.text = "100"
@@ -82,7 +82,7 @@ class finalViewController: UIViewController {
         blue_display.text = "100"
         
         // handle alerts
-        alert.addAction(UIAlertAction(title: "Continue", style: .Default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
                 self.loadFinalScene()
             }))
         
@@ -95,14 +95,14 @@ class finalViewController: UIViewController {
             music3.stop()
             music3 = nil
         }
-        let final: SecondViewController = storyboard?.instantiateViewControllerWithIdentifier("first") as! SecondViewController
+        let final: SecondViewController = storyboard?.instantiateViewController(withIdentifier: "first") as! SecondViewController
         final.level = 21
-        self.presentViewController(final, animated: false, completion: nil)
+        self.present(final, animated: false, completion: nil)
         
     }
     
     func dismissAlert() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     // values of the sliders
@@ -143,19 +143,19 @@ class finalViewController: UIViewController {
     @IBOutlet weak var mute_btn: UIButton!
     var mute: Bool = false
     
-    @IBAction func clickedButton(sender: AnyObject) {
+    @IBAction func clickedButton(_ sender: AnyObject) {
         if mute {
             if music3 != nil {
                 music3.play()
             }
-            self.mute_btn.setImage(UIImage(named: "mute"), forState: .Normal)
+            self.mute_btn.setImage(UIImage(named: "mute"), for: UIControlState())
             mute = false
         }
         else {
             if music3 != nil {
                 music3.pause()
             }
-            self.mute_btn.setImage(UIImage(named: "unmute"), forState: .Normal)
+            self.mute_btn.setImage(UIImage(named: "unmute"), for: UIControlState())
             mute = true
         }
     }
@@ -166,9 +166,9 @@ class finalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func submittedAnswer(sender: AnyObject) {
+    @IBAction func submittedAnswer(_ sender: AnyObject) {
         if value_red == 20 && value_yellow == 120 && value_green == 20 && value_blue == 40 {
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
         else {
             // wrong

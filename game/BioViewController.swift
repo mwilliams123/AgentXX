@@ -96,19 +96,19 @@ class BioViewController: UIViewController {
         // load the image
         let string = String(level)
         let image_name = "bio" + string
-        let im = UIImage(imageLiteral: image_name)
+        let im = UIImage(named: image_name)!
         
         // get width of screen
-        let screenSize = UIScreen.mainScreen().bounds
+        let screenSize = UIScreen.main.bounds
         let width: CGFloat = screenSize.width - 44
         
         // scale image height to maintain aspect ratio
         let scale =  width / (im.size.width)
         let height = (im.size.height) * scale
-        let rect = CGRectMake(0, 0, width, height)
+        let rect = CGRect(x: 0, y: 0, width: width, height: height)
         // redraw images to fit screen width and scaled height
         UIGraphicsBeginImageContext(rect.size)
-        im.drawInRect(rect)
+        im.draw(in: rect)
         let new_image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         image.frame = rect
@@ -133,23 +133,23 @@ class BioViewController: UIViewController {
         a5.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, a5.length))
         a6.addAttribute(NSFontAttributeName, value: font!, range: NSMakeRange(0, a6.length))
         
-        a1.appendAttributedString(a4)
-        a1.appendAttributedString(a2)
-        a1.appendAttributedString(a5)
-        a1.appendAttributedString(a3)
-        a1.appendAttributedString(a6)
+        a1.append(a4)
+        a1.append(a2)
+        a1.append(a5)
+        a1.append(a3)
+        a1.append(a6)
         label.attributedText = a1
     }
     
     
     
-    @IBAction func closeView(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+    @IBAction func closeView(_ sender: AnyObject) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        label.setContentOffset(CGPointZero, animated: false)
+        label.setContentOffset(CGPoint.zero, animated: false)
     }
 
     

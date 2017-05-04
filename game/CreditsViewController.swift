@@ -19,19 +19,19 @@ class CreditsViewController: UIViewController {
     var len:Int = 0
     var len2: Int = 0
     var counter:Int = 0
-    var timer = NSTimer()
+    var timer = Timer()
     var string: NSAttributedString = NSAttributedString()
     var s: String = ""
     // music
     var music1: AVAudioPlayer!
     
     func print_text() {
-        let new_string:NSMutableAttributedString = NSMutableAttributedString(attributedString: string.attributedSubstringFromRange(NSMakeRange(0, counter)))
-        new_string.appendAttributedString(NSAttributedString(string: "\n"))
-        screen.scrollEnabled = false
+        let new_string:NSMutableAttributedString = NSMutableAttributedString(attributedString: string.attributedSubstring(from: NSMakeRange(0, counter)))
+        new_string.append(NSAttributedString(string: "\n"))
+        screen.isScrollEnabled = false
         screen.attributedText = new_string
         
-        screen.scrollEnabled = true
+        screen.isScrollEnabled = true
         //screen.scrollRangeToVisible(NSMakeRange(counter-1, 1))
         //let ind = s.startIndex.advancedBy(counter)
         //if  self.screen.contentSize.height  + screen.contentOffset.y > screen.frame.height {
@@ -68,10 +68,10 @@ class CreditsViewController: UIViewController {
         
         // load the music
         // play the music
-        let path = NSBundle.mainBundle().pathForResource("TheBuilder.mp3", ofType: nil)
-        let url = NSURL(fileURLWithPath: path!)
+        let path = Bundle.main.path(forResource: "TheBuilder.mp3", ofType: nil)
+        let url = URL(fileURLWithPath: path!)
         do {
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let sound = try AVAudioPlayer(contentsOf: url)
             music1 = sound
             music1.numberOfLoops = -1
             sound.play()
@@ -101,19 +101,19 @@ class CreditsViewController: UIViewController {
         let attString2:NSMutableAttributedString = NSMutableAttributedString(string: music)
         attString2.addAttribute(NSFontAttributeName, value: font3!, range: NSMakeRange(0, attString2.length))
         
-        attString.appendAttributedString(attString2)
+        attString.append(attString2)
         attString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0, green: 1, blue: 0.5, alpha: 1), range: NSMakeRange(0, len))
         
         // center text
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Center
+        paragraphStyle.alignment = .center
         attString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, len))
         
         len2 = attString.length + 50
         
         string = attString
         //counter = 1
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: #selector(CreditsViewController.print_text), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(CreditsViewController.print_text), userInfo: nil, repeats: true)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(CreditsViewController.dismissCredits))
         self.view.addGestureRecognizer(tap)
@@ -122,10 +122,10 @@ class CreditsViewController: UIViewController {
     }
     
     func dismissCredits() {
-        if !timer.valid {
+        if !timer.isValid {
             music1.stop()
             let loadScreen: InitialViewController = storyboard?.instantiateInitialViewController() as! InitialViewController
-            self.presentViewController(loadScreen, animated: false, completion: nil)
+            self.present(loadScreen, animated: false, completion: nil)
         }
     }
     

@@ -19,13 +19,13 @@ class PopUpViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        button.backgroundColor = UIColor.clearColor()
+        button.backgroundColor = UIColor.clear
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.blueColor().CGColor
+        button.layer.borderColor = UIColor.blue.cgColor
         label.text = text
     }
-    @IBAction func close(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

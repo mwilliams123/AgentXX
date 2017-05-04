@@ -17,7 +17,7 @@
 import UIKit
 import AVFoundation
 
-let myDefaults = NSUserDefaults.standardUserDefaults()
+let myDefaults = UserDefaults.standard
 let myLevel = "myLevel"
 let myChoices = "myChoices"
 let loadScreen = "loadScreen"
@@ -498,104 +498,104 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     @IBOutlet weak var mc4: UIButton!
     
     
-    @IBAction func clickedmc1(sender: AnyObject) {
+    @IBAction func clickedmc1(_ sender: AnyObject) {
         
         //handle this button
-        if mc1.selected {
-            mc1.selected = false
-            mc1.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc1.isSelected {
+            mc1.isSelected = false
+            mc1.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
         else {
-            mc1.selected = true
-            mc1.setImage(UIImage(named: "radiobtn_unchecked"), forState: .Normal)
+            mc1.isSelected = true
+            mc1.setImage(UIImage(named: "radiobtn_unchecked"), for: UIControlState())
         }
         //handle other buttons
-        if mc2.selected {
-            mc2.selected = false
-            mc2.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc2.isSelected {
+            mc2.isSelected = false
+            mc2.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc3.selected {
-            mc3.selected = false
-            mc3.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc3.isSelected {
+            mc3.isSelected = false
+            mc3.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc4.selected {
-            mc4.selected = false
-            mc4.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc4.isSelected {
+            mc4.isSelected = false
+            mc4.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
     }
     
-    @IBAction func clickedmc2(sender: AnyObject) {
+    @IBAction func clickedmc2(_ sender: AnyObject) {
         //handle this button
-        if mc2.selected {
-            mc2.selected = false
-            mc2.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc2.isSelected {
+            mc2.isSelected = false
+            mc2.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
         else {
-            mc2.selected = true
-            mc2.setImage(UIImage(named: "radiobtn_unchecked"), forState: .Normal)
+            mc2.isSelected = true
+            mc2.setImage(UIImage(named: "radiobtn_unchecked"), for: UIControlState())
         }
         //handle other buttons
-        if mc1.selected {
-            mc1.selected = false
-            mc1.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc1.isSelected {
+            mc1.isSelected = false
+            mc1.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc3.selected {
-            mc3.selected = false
-            mc3.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc3.isSelected {
+            mc3.isSelected = false
+            mc3.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc4.selected {
-            mc4.selected = false
-            mc4.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc4.isSelected {
+            mc4.isSelected = false
+            mc4.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
     }
     
-    @IBAction func clickedmc3(sender: AnyObject) {
+    @IBAction func clickedmc3(_ sender: AnyObject) {
         //handle this button
-        if mc3.selected {
-            mc3.selected = false
-            mc3.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc3.isSelected {
+            mc3.isSelected = false
+            mc3.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
         else {
-            mc3.selected = true
-            mc3.setImage(UIImage(named: "radiobtn_unchecked"), forState: .Normal)
+            mc3.isSelected = true
+            mc3.setImage(UIImage(named: "radiobtn_unchecked"), for: UIControlState())
         }
         //handle other buttons
-        if mc2.selected {
-            mc2.selected = false
-            mc2.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc2.isSelected {
+            mc2.isSelected = false
+            mc2.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc1.selected {
-            mc1.selected = false
-            mc1.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc1.isSelected {
+            mc1.isSelected = false
+            mc1.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc4.selected {
-            mc4.selected = false
-            mc4.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc4.isSelected {
+            mc4.isSelected = false
+            mc4.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
     }
     
-    @IBAction func clickedmc4(sender: AnyObject) {
+    @IBAction func clickedmc4(_ sender: AnyObject) {
         //handle this button
-        if mc4.selected {
-            mc4.selected = false
-            mc4.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc4.isSelected {
+            mc4.isSelected = false
+            mc4.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
         else {
-            mc4.selected = true
-            mc4.setImage(UIImage(named: "radiobtn_unchecked"), forState: .Normal)
+            mc4.isSelected = true
+            mc4.setImage(UIImage(named: "radiobtn_unchecked"), for: UIControlState())
         }
         //handle other buttons
-        if mc2.selected {
-            mc2.selected = false
-            mc2.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc2.isSelected {
+            mc2.isSelected = false
+            mc2.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc3.selected {
-            mc3.selected = false
-            mc3.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc3.isSelected {
+            mc3.isSelected = false
+            mc3.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
-        if mc1.selected {
-            mc1.selected = false
-            mc1.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+        if mc1.isSelected {
+            mc1.isSelected = false
+            mc1.setImage(UIImage(named: "radiobtn"), for: UIControlState())
         }
     }
     
@@ -622,25 +622,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     @IBOutlet weak var bag_image: UIButton!
     
     //handles clicking of bag
-    @IBAction func clickedBag(sender: UIButton) {
-        bag_image.setImage(UIImage(named: "bag_pic"), forState: .Normal)
+    @IBAction func clickedBag(_ sender: UIButton) {
+        bag_image.setImage(UIImage(named: "bag_pic"), for: UIControlState())
     }
     
     
     
-    @IBAction func openBag(sender: AnyObject) {
+    @IBAction func openBag(_ sender: AnyObject) {
         // stop music
         
         
         // make bag pop up
-        let bag:BagViewController = storyboard?.instantiateViewControllerWithIdentifier("bag") as! BagViewController
+        let bag:BagViewController = storyboard?.instantiateViewController(withIdentifier: "bag") as! BagViewController
         let piecesCollected:Int = Qnum / 4
         bag.year = years[level]
         bag.pieces = piecesCollected
-        bag.modalPresentationStyle = .Popover
+        bag.modalPresentationStyle = .popover
         let popoverController = bag.popoverPresentationController
         popoverController?.sourceView = self.view
-        presentViewController(bag, animated: true, completion: nil)
+        present(bag, animated: true, completion: nil)
         
     }
     
@@ -655,11 +655,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 music.stop()
                 music = nil
             }
-            myDefaults.setInteger(0, forKey: loadScreen)
-            let cutScreen:SecondViewController = storyboard?.instantiateViewControllerWithIdentifier("first") as! SecondViewController
+            myDefaults.set(0, forKey: loadScreen)
+            let cutScreen:SecondViewController = storyboard?.instantiateViewController(withIdentifier: "first") as! SecondViewController
             cutScreen.level = Qnum / 4
             cutScreen.maze = true
-            self.presentViewController(cutScreen, animated: false, completion: nil)
+            self.present(cutScreen, animated: false, completion: nil)
         }
         else {
             printNextQ()
@@ -670,7 +670,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     //multiple-choice view
     @IBOutlet weak var mcView: UIView!
     
-    var color:UIColor = .clearColor()
+    var color:UIColor = .clear
     
     func printNextQ() {
         questionField.textStorage.setAttributedString(NSAttributedString(string: ""))
@@ -753,36 +753,36 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
         }
         if image_name != "" {
             let question_image = UIImage(named: image_name)
-            let screenSize = UIScreen.mainScreen().bounds
+            let screenSize = UIScreen.main.bounds
             let width: CGFloat = screenSize.width - 38
             let scale =  width / (question_image?.size.width)!
             let height = (question_image?.size.height)! * scale
-            let rect = CGRectMake(0, 0, width, height)
+            let rect = CGRect(x: 0, y: 0, width: width, height: height)
             let attachment = NSTextAttachment()
             attachment.image = question_image
             attachment.bounds = rect
             let attString = NSAttributedString(attachment: attachment)
-            string.appendAttributedString(attString)
+            string.append(attString)
             questionField.attributedText = string
             //questionField.textStorage.insertAttributedString(attString, atIndex: questionField.selectedRange.location)
         }
         questionField.flashScrollIndicators()
         if (Qnum >= 8 && Qnum <= 14) || Qnum == 60 || Qnum == 62 || Qnum == 63 || Qnum == 73 {
-            mcView2.hidden = true
-            answerField.hidden = false
+            mcView2.isHidden = true
+            answerField.isHidden = false
         }
         else if Qnum == 76 {
             // load special view for last question
         }
         else {
-            mcView2.hidden = false
-            answerField.hidden = true
+            mcView2.isHidden = false
+            answerField.isHidden = true
             
             if Qnum == 50 {
-                mc4.hidden = true
+                mc4.isHidden = true
             }
             else {
-                mc4.hidden = false
+                mc4.isHidden = false
             }
             
             if Qnum == 75 {
@@ -823,14 +823,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 choice3.text = c3[mc_question]
                 choice4.text = c4[mc_question]
             }
-            mc1.selected = false
-            mc2.selected = false
-            mc3.selected = false
-            mc4.selected = false
-            mc1.setImage(UIImage(named: "radiobtn"), forState: .Normal)
-            mc2.setImage(UIImage(named: "radiobtn"), forState: .Normal)
-            mc3.setImage(UIImage(named: "radiobtn"), forState: .Normal)
-            mc4.setImage(UIImage(named: "radiobtn"), forState: .Normal)
+            mc1.isSelected = false
+            mc2.isSelected = false
+            mc3.isSelected = false
+            mc4.isSelected = false
+            mc1.setImage(UIImage(named: "radiobtn"), for: UIControlState())
+            mc2.setImage(UIImage(named: "radiobtn"), for: UIControlState())
+            mc3.setImage(UIImage(named: "radiobtn"), for: UIControlState())
+            mc4.setImage(UIImage(named: "radiobtn"), for: UIControlState())
             scroller.flashScrollIndicators()
         }
         
@@ -842,7 +842,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     var music: AVAudioPlayer!
     
     //alert for correct question
-    let alert:UIAlertController = UIAlertController(title: "Correct!", message: "Very Nice Job", preferredStyle: UIAlertControllerStyle.Alert)
+    let alert:UIAlertController = UIAlertController(title: "Correct!", message: "Very Nice Job", preferredStyle: UIAlertControllerStyle.alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -851,7 +851,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
         answerField.resignFirstResponder()
         
         // create alert for question answered correctly
-        alert.addAction(UIAlertAction(title: "continue", style: .Default, handler: { action in
+        alert.addAction(UIAlertAction(title: "continue", style: .default, handler: { action in
             self.transition()
         }))
         
@@ -859,18 +859,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
         
         
         // get the saved question number
-        Qnum = myDefaults.integerForKey(myLevel)
-        mc_question = myDefaults.integerForKey(myChoices)
+        Qnum = myDefaults.integer(forKey: myLevel)
+        mc_question = myDefaults.integer(forKey: myChoices)
         
         
-        myDefaults.setInteger(2, forKey: loadScreen)
+        myDefaults.set(2, forKey: loadScreen)
         var path:String = ""
         
         if Qnum == 76 {
-            path = NSBundle.mainBundle().pathForResource("TheBuilder.mp3", ofType: nil)!
+            path = Bundle.main.path(forResource: "TheBuilder.mp3", ofType: nil)!
         }
         else {
-            path = NSBundle.mainBundle().pathForResource("HiddenAgenda.mp3", ofType: nil)!
+            path = Bundle.main.path(forResource: "HiddenAgenda.mp3", ofType: nil)!
         }
         
         // set the date at bottom of screen
@@ -880,10 +880,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
         
         // play the music
         
-        let url = NSURL(fileURLWithPath: path)
+        let url = URL(fileURLWithPath: path)
         
         do {
-            let sound = try AVAudioPlayer(contentsOfURL: url)
+            let sound = try AVAudioPlayer(contentsOf: url)
             music = sound
             music.numberOfLoops = -1
             sound.play()
@@ -897,10 +897,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     func correctAnswer() {
         Qnum = Qnum + 1
         message.text = ""
-        myDefaults.setInteger(Qnum, forKey: myLevel)
-        myDefaults.setInteger(mc_question, forKey: myChoices)
+        myDefaults.set(Qnum, forKey: myLevel)
+        myDefaults.set(mc_question, forKey: myChoices)
         
-        self.presentViewController(alert, animated: true, completion: { () -> Void in})
+        self.present(alert, animated: true, completion: { () -> Void in})
     }
     
     var num_incorrect = 0
@@ -909,15 +909,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
         num_incorrect += 1
         // present message
         
-        let popUp: PopUpViewController = storyboard?.instantiateViewControllerWithIdentifier("pop") as! PopUpViewController
+        let popUp: PopUpViewController = storyboard?.instantiateViewController(withIdentifier: "pop") as! PopUpViewController
         //var nav = UINavigationController(rootViewController: popUp)
-        popUp.modalPresentationStyle = .Popover
-        popUp.preferredContentSize = CGSizeMake(150, 100)
+        popUp.modalPresentationStyle = .popover
+        popUp.preferredContentSize = CGSize(width: 150, height: 100)
         let popoverController = popUp.popoverPresentationController
         popoverController?.delegate = self
         popoverController?.sourceView = self.view
         popoverController?.sourceRect = CGRect(x: 50, y: bag_image.center.y - 50, width: 1, height: 1)
-        popoverController?.permittedArrowDirections = .Down
+        popoverController?.permittedArrowDirections = .down
         var s: String = ""
         if num_incorrect == 1 {
             s = "So close!\nTry again.\nYou got this."
@@ -926,19 +926,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
             s = "You can always click on me for help!"
         }
         popUp.text = s
-        presentViewController(popUp, animated: true, completion: nil)
+        present(popUp, animated: true, completion: nil)
     }
     
     
     //submit button response
-    @IBAction func button(sender: UIButton) {
+    @IBAction func button(_ sender: UIButton) {
         
-        var answer = answerField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        answer = answer!.lowercaseString
+        var answer = answerField.text?.trimmingCharacters(in: CharacterSet.whitespaces)
+        answer = answer!.lowercased()
         
         switch Qnum {
         case 0:
-            if mc2.selected   {
+            if mc2.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -946,7 +946,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 1:
-            if mc3.selected   {
+            if mc3.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -954,7 +954,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 2:
-            if mc3.selected   {
+            if mc3.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -962,7 +962,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 3:
-            if mc2.selected   {
+            if mc2.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -970,7 +970,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 4:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -978,7 +978,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 5:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -986,7 +986,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 6:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -994,7 +994,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                incorrectAnswer()
             }
         case 7:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1057,7 +1057,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 15:
-            if mc4.selected   {
+            if mc4.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1065,7 +1065,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 16:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1073,7 +1073,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 17:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1081,7 +1081,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 18:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1089,7 +1089,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 19:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1097,7 +1097,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 20:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1105,7 +1105,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 21:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1113,7 +1113,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 22:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1121,7 +1121,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 23:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1129,7 +1129,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 24:
-            if mc1.selected {
+            if mc1.isSelected {
                 
                 correctAnswer()
             }
@@ -1137,7 +1137,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 25:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1145,7 +1145,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 26:
-            if mc3.selected {
+            if mc3.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1153,7 +1153,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 27:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1161,7 +1161,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 28:
-            if mc4.selected {
+            if mc4.isSelected {
                 
                 correctAnswer()
             }
@@ -1169,7 +1169,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 29:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1177,7 +1177,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 30:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1185,7 +1185,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 31:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1193,7 +1193,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 32:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1201,7 +1201,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 33:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1209,7 +1209,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 34:
-            if mc1.selected {
+            if mc1.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1217,7 +1217,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 35:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1225,14 +1225,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 36:
-            if mc1.selected {
+            if mc1.isSelected {
                 correctAnswer()
             }
             else {
                 incorrectAnswer()
             }
         case 37:
-            if mc3.selected {
+            if mc3.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1240,7 +1240,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 38:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1248,7 +1248,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 39:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1256,7 +1256,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 40:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1264,7 +1264,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 41:
-            if mc2.selected  {
+            if mc2.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1272,7 +1272,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                incorrectAnswer()
             }
         case 42:
-            if mc3.selected  {
+            if mc3.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1280,7 +1280,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 43:
-            if mc3.selected  {
+            if mc3.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1288,7 +1288,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 44:
-            if mc4.selected  {
+            if mc4.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1296,7 +1296,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 45:
-            if mc2.selected  {
+            if mc2.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1304,7 +1304,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 46:
-            if mc1.selected  {
+            if mc1.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1312,7 +1312,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 47:
-            if mc1.selected  {
+            if mc1.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1320,7 +1320,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 48:
-            if mc4.selected  {
+            if mc4.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1328,7 +1328,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 49:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1336,7 +1336,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 50:
-            if mc2.selected  {
+            if mc2.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1344,7 +1344,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 51:
-            if mc3.selected  {
+            if mc3.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1352,7 +1352,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
               incorrectAnswer()
             }
         case 52:
-            if mc1.selected {
+            if mc1.isSelected {
                 
                 correctAnswer()
             }
@@ -1360,7 +1360,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 53:
-            if mc2.selected  {
+            if mc2.isSelected  {
                 
                 correctAnswer()
             }
@@ -1368,7 +1368,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 54:
-            if mc3.selected  {
+            if mc3.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1376,7 +1376,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 55:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1384,7 +1384,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 56:
-            if mc3.selected {
+            if mc3.isSelected {
                 
                 correctAnswer()
             }
@@ -1392,7 +1392,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 57:
-            if mc2.selected {
+            if mc2.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1400,7 +1400,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 58:
-            if mc3.selected {
+            if mc3.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1408,7 +1408,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 59:
-            if mc4.selected{
+            if mc4.isSelected{
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1423,7 +1423,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 61:
-            if mc3.selected {
+            if mc3.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1448,7 +1448,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
             }
             
         case 64:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1456,7 +1456,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 65:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1464,7 +1464,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 66:
-            if mc4.selected  {
+            if mc4.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1472,7 +1472,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 67:
-            if mc2.selected  {
+            if mc2.isSelected  {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1481,7 +1481,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
             }
             
         case 68:
-            if mc2.selected   {
+            if mc2.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1489,7 +1489,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 69:
-            if mc3.selected   {
+            if mc3.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1497,7 +1497,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 70:
-            if mc2.selected   {
+            if mc2.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1505,7 +1505,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 71:
-            if mc1.selected   {
+            if mc1.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1513,7 +1513,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 72:
-            if mc3.selected   {
+            if mc3.isSelected   {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1529,7 +1529,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                 incorrectAnswer()
             }
         case 74:
-            if mc4.selected {
+            if mc4.isSelected {
                 mc_question = mc_question + 1
                 correctAnswer()
             }
@@ -1537,7 +1537,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
                incorrectAnswer()
             }
         case 75:
-            if mc3.selected   {
+            if mc3.isSelected   {
                 correctAnswer()
             }
             else {
@@ -1554,29 +1554,29 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     
     
     // load info sheets
-    @IBAction func openInfoSheet(sender: AnyObject) {
+    @IBAction func openInfoSheet(_ sender: AnyObject) {
         if music != nil {
             music.stop()
             music = nil
         }
-        let info_sheet:InfoViewController = storyboard?.instantiateViewControllerWithIdentifier("info") as! InfoViewController
+        let info_sheet:InfoViewController = storyboard?.instantiateViewController(withIdentifier: "info") as! InfoViewController
         info_sheet.level = level + 1
-        self.presentViewController(info_sheet, animated: false, completion: nil)
+        self.present(info_sheet, animated: false, completion: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // create pop-up
         if level == 0 {
-            let popUp: PopUpViewController = storyboard?.instantiateViewControllerWithIdentifier("pop") as! PopUpViewController
+            let popUp: PopUpViewController = storyboard?.instantiateViewController(withIdentifier: "pop") as! PopUpViewController
             //var nav = UINavigationController(rootViewController: popUp)
-            popUp.modalPresentationStyle = .Popover
-            popUp.preferredContentSize = CGSizeMake(150, 100)
+            popUp.modalPresentationStyle = .popover
+            popUp.preferredContentSize = CGSize(width: 150, height: 100)
             let popoverController = popUp.popoverPresentationController
             popoverController?.delegate = self
             popoverController?.sourceView = self.view
             popoverController?.sourceRect = CGRect(x: 50, y: bag_image.center.y - 50, width: 1, height: 1)
-            popoverController?.permittedArrowDirections = .Down
-            presentViewController(popUp, animated: true, completion: nil)
+            popoverController?.permittedArrowDirections = .down
+            present(popUp, animated: true, completion: nil)
         }
         
     }
@@ -1585,50 +1585,50 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPopoverPresentati
     
     @IBOutlet weak var mute_btn: UIButton!
     
-    @IBAction func mutedButton(sender: AnyObject) {
+    @IBAction func mutedButton(_ sender: AnyObject) {
             if mute {
                 if music != nil {
                     music.play()
                 }
-                self.mute_btn.setImage(UIImage(named: "mute"), forState: .Normal)
+                self.mute_btn.setImage(UIImage(named: "mute"), for: UIControlState())
                 mute = false
             }
             else {
                 if music != nil {
                     music.pause()
                 }
-                self.mute_btn.setImage(UIImage(named: "unmute"), forState: .Normal)
+                self.mute_btn.setImage(UIImage(named: "unmute"), for: UIControlState())
                 mute = true
         }
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if music != nil {
             music.stop()
             music = nil
         }
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         // Return no adaptive presentation style, use default presentation behaviour
-        return .None
+        return .none
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.answerField.resignFirstResponder()
         return false
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        questionField.setContentOffset(CGPointZero, animated: false)
+        questionField.setContentOffset(CGPoint.zero, animated: false)
         self.questionField.flashScrollIndicators()
-        if mcView2.hidden == false {
+        if mcView2.isHidden == false {
             scroller.flashScrollIndicators()
         }
     }

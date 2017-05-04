@@ -60,11 +60,11 @@ class InfoViewController: UIViewController {
         }
         
         // get width of screen
-        let screenSize = UIScreen.mainScreen().bounds
+        let screenSize = UIScreen.main.bounds
         let width: CGFloat = screenSize.width
         
         // set width of stack view to width of screen
-        stack.addConstraint(NSLayoutConstraint(item: stack, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: width))
+        stack.addConstraint(NSLayoutConstraint(item: stack, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: width))
         
         // load and scale images:
         
@@ -77,10 +77,10 @@ class InfoViewController: UIViewController {
             scale1 = width / (im1!.size.width)
             height1 = (im1!.size.height) * scale1
         }
-        let rect1 = CGRectMake(0, 0, width, height1)
+        let rect1 = CGRect(x: 0, y: 0, width: width, height: height1)
         // redraw images to fit screen width and scaled height
         UIGraphicsBeginImageContext(rect1.size)
-        im1?.drawInRect(rect1)
+        im1?.draw(in: rect1)
         let new_image1 = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         image1.frame = rect1
@@ -92,9 +92,9 @@ class InfoViewController: UIViewController {
         let im2 = UIImage(named: imageString2)
         let scale2 =  width / (im2?.size.width)!
         height2 = (im2?.size.height)! * scale2
-        let rect2 = CGRectMake(0, 0, width, height2)
+        let rect2 = CGRect(x: 0, y: 0, width: width, height: height2)
         UIGraphicsBeginImageContext(rect2.size)
-        im2?.drawInRect(rect2)
+        im2?.draw(in: rect2)
         let new_image2 = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         image2.frame = rect2
@@ -108,9 +108,9 @@ class InfoViewController: UIViewController {
             let im3 = UIImage(named: imageString3)
             let scale3 =  width / (im3?.size.width)!
             height3 = (im3?.size.height)! * scale3
-            let rect3 = CGRectMake(0, 0, width, height3)
+            let rect3 = CGRect(x: 0, y: 0, width: width, height: height3)
             UIGraphicsBeginImageContext(rect3.size)
-            im3?.drawInRect(rect3)
+            im3?.draw(in: rect3)
             let new_image3 = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             image3.frame = rect3
@@ -126,9 +126,9 @@ class InfoViewController: UIViewController {
             let im4 = UIImage(named: imageString4)
             let scale4 =  width / (im4?.size.width)!
             height4 = (im4?.size.height)! * scale4
-            let rect4 = CGRectMake(0, 0, width, height4)
+            let rect4 = CGRect(x: 0, y: 0, width: width, height: height4)
             UIGraphicsBeginImageContext(rect4.size)
-            im4?.drawInRect(rect4)
+            im4?.draw(in: rect4)
             let new_image4 = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             image4.frame = rect4
@@ -138,7 +138,7 @@ class InfoViewController: UIViewController {
         
         // let height of stack view be height of combined images
         let height = height1 + height2 + height3 + height4
-        stack.addConstraint(NSLayoutConstraint(item: stack, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: height))
+        stack.addConstraint(NSLayoutConstraint(item: stack, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: height))
         
         //show the vertical scroll bar
         scroller.flashScrollIndicators()
@@ -152,18 +152,18 @@ class InfoViewController: UIViewController {
     }
     
     // go to next screen
-    @IBAction func next(sender: AnyObject) {
+    @IBAction func next(_ sender: AnyObject) {
         if casefile {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         else if maze {
-            let maze_view:MazeViewController = storyboard?.instantiateViewControllerWithIdentifier("maze") as! MazeViewController
+            let maze_view:MazeViewController = storyboard?.instantiateViewController(withIdentifier: "maze") as! MazeViewController
             maze_view.level = level
-            self.presentViewController(maze_view, animated: false, completion: nil)
+            self.present(maze_view, animated: false, completion: nil)
         }
         else {
-            let returnScreen:ViewController = storyboard?.instantiateViewControllerWithIdentifier("main") as! ViewController
-            self.presentViewController(returnScreen, animated: false, completion: nil)
+            let returnScreen:ViewController = storyboard?.instantiateViewController(withIdentifier: "main") as! ViewController
+            self.present(returnScreen, animated: false, completion: nil)
         }
         
     }
